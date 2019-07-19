@@ -7,6 +7,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 gem "coffee-rails", "~> 4.2"
 gem "jbuilder", "~> 2.5"
 gem "puma", "~> 3.11"
+gem "config"
 gem "rails", "~> 5.2.3"
 gem "rails-i18n"
 gem "rubocop", "~> 0.54.0", require: false
@@ -22,7 +23,6 @@ end
 group :development do
   gem "listen", ">= 3.0.5", "< 3.2"
   gem "spring"
-  gem "mysql2"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
 end
