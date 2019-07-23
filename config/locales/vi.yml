@@ -1,0 +1,19 @@
+en:
+  hello: "Hello world"
+  ruby_book: "RubyNaitei2019BookSharing"
+  users:
+    new:
+      sign_up: "Đăng ký"
+      create_my_account: "Tạo tài khoản"
+      name: "Tên"
+      password: "Mật khẩu"
+      pass_confirm: "Xác nhận"
+      edit_user: "Sửa đổi thông tin"
+
+  activate_account: "Tài khoản được kích hoạt"
+  welcome: "Xin chào"
+  rails: "Rails app"
+  log_in: "Đăng nhập"
+  sign_up_now: "Đăng kí ngay"
+  invalid_combi: "Mật khẩu và tài khoản không chính xác"
+  book_share: "Book Share"
