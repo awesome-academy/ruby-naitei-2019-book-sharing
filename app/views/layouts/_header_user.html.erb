@@ -1,0 +1,44 @@
+<li>
+  <%= link_to "#", class: "dropbtn", data: {turbolinks: false} do %>
+    <i class="fa fa-pencil-square-o fa-md" aria-hidden="true"></i>
+    <%= t "user.write_review" %>
+  <% end %>
+</li>
+
+<li class="dropdown pmd-dropdown">
+  <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+    <i class="fa fa-user" aria-hidden="true"></i>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu dropdown-menu-right">
+    <li>
+      <%= link_to user_path(current_user), class:"blog-list-item-anchor",
+        data: {turbolinks: false} do %>
+        <span class="blog-list-item-info">
+          <span class="blog-list-item-info-name">
+            <%= current_user.name %>
+          </span>
+        </span>
+      <% end %>
+    </li>
+    <li role="separator" class="divider"></li>
+    <li>
+      <%= link_to "#", class:"blog-sub-nav-item-link",
+        data: {turbolinks: false} do %>
+        <%= t "user.reviews" %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to "#", method: :get,
+        data: {turbolinks: false} do %>
+        <i class="fa fa-cog" aria-hidden="true"></i> <%= t "user.settings" %>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to logout_path, method: :delete,
+        data: {turbolinks: false} do %>
+        <i class="fa fa-sign-out" aria-hidden="true"></i> <%= t "user.sign_out" %>
+      <% end %>
+    </li>
+  </ul>
+</li>

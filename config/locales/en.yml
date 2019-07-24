@@ -1,3 +1,19 @@
 en:
   hello: "Hello world"
   ruby_book: "RubyNaitei2019BookSharing"
+  users:
+    new:
+      sign_up: "Sign up"
+      create_my_account: "Create my account"
+      name: "Name"
+      password: "Password"
+      pass_confirm: "Confirmation"
+  error: "error"
+
+  activate_account: "Activate account"
+  welcome: "welcome"
+  rails: "Rails app"
+  log_in: "Log in"
+  sign_up_now: "Sign up now"
+  invalid_combi: "Invalid combine username and password"
+  book_share: "Book Share"

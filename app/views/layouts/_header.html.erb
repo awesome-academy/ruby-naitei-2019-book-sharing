@@ -1,0 +1,41 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <span class="navbar-brand"><%= t "home.title" %></span>
+    </div>
+    <ul class="nav navbar-nav">
+      <li>
+        <%= link_to "#", data: {turbolinks: false} do %>
+          <%= t "user.home" %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#", data: {turbolinks: false} do %>
+          <%= t "home.about" %>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#", data: {turbolinks: false} do %>
+          <%= t "home.contact" %>
+        <% end %>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+      <% if logged_in? %>
+        <%= render "layouts/header_user" %>
+      <% else %>
+        <li>
+          <%= link_to signup_path, method: :get, data: {turbolinks: false} do %>
+            <span class="glyphicon glyphicon-user"></span> <%= t "user.sign_up" %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to login_path, method: :get, data: {turbolinks: false} do %>
+            <span class="glyphicon glyphicon-log-in"></span> <%= t "user.login" %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

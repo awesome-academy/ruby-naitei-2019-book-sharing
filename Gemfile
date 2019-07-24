@@ -1,15 +1,19 @@
 source "https://rubygems.org"
 git_source(:github){|repo| "https://github.com/#{repo}.git"}
 
-ruby "2.5.5"
-
+gem "bcrypt", "3.1.12"
 gem "bootsnap", ">= 1.1.0", require: false
+gem "bootstrap-sass", "3.3.7"
 gem "coffee-rails", "~> 4.2"
-gem "jbuilder", "~> 2.5"
-gem "puma", "~> 3.11"
 gem "config"
+gem "font-awesome-rails"
+gem "font-awesome-sass"
+gem "jbuilder", "~> 2.5"
+gem "jquery-rails", "~> 4.3", ">= 4.3.3"
+gem "puma", "~> 3.11"
 gem "rails", "~> 5.2.3"
 gem "rails-i18n"
+gem "rails-ujs", "~> 0.1.0"
 gem "rubocop", "~> 0.54.0", require: false
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
