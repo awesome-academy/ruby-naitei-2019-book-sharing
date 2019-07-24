@@ -1,0 +1,79 @@
+<div class="book-details">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="row">
+          <div id="imagecol" class="col-sm-4">
+            <div class="bookCoverContainer">
+              <div class="bookCoverPrimary">
+                <%= link_to book_path(@book) do %>
+                  <%= image_tag @book.picture.url, id: "coverImage" if @book.picture? %>
+                <% end %>
+              </div>
+
+              <!-- rate book  -->
+              <!-- TODO -->
+
+            </div>
+          </div>
+
+          <div class="last col-sm-8" id="metacol">
+            <h1 id="bookTitle" class="bookTitle">
+              <%= link_to @book.name, book_path(@book) %>
+            </h1>
+            <div id="bookAuthors" class="stacked">
+              <span class="by smallText">
+                <% if @book.authors.any? %>
+                  <small><%= t "by" %></small>
+                  <% @book.authors.each do |author| %>
+                    <span><%= author.name %></span>
+                    <% unless author == @book.authors.last %>,<% end %>
+                  <% end %>
+                <% end %>
+              </span>
+            </div>
+
+            <!-- average rate -->
+            <!-- TODO -->
+
+            <div id="descriptionContainer">
+              <div id="description" class="readable stacked" style="right:0">
+                <span><%= @book.descript %></span>
+              </div>
+            </div>
+
+            <div id="details" class="uitext darkGreyText">
+              <div class="">
+                <%= t "published" %><%= @book.publish_date.strftime("%d %b %Y") %>
+                <%= t "by" %><b><%= @book.publisher %></b>
+              </div>
+            </div><br>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="list-cate">
+        <div class=" clearFloats bigBox">
+          <div class="h2Container gradientHeaderContainer">
+            <h2 class="brownBackground"><%= t "genres" %></h2><hr>
+          </div>
+          <div class="bigBoxBody">
+            <div class="bigBoxContent containerWithHeaderContent">
+              <% @book.genres.distinct.each do |cate| %>
+                <div class="elementList ">
+                  <%= link_to cate.name, "#",
+                    class:"bookPageGenreLink" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

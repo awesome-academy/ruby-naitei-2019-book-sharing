@@ -3,7 +3,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
     create_table :books do |t|
       t.string :name
       t.integer :page_number
-      t.string :descript
+      t.text :descript
 
       t.timestamps
     end

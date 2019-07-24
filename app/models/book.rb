@@ -1,4 +1,6 @@
 class Book < ApplicationRecord
+  mount_uploader :picture, ImagesUploader
+
   has_many :author_books
   has_many :authors, through: :author_books, dependent: :destroy
   has_many :book_genres

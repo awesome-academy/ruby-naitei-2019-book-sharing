@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_23_084230) do
+ActiveRecord::Schema.define(version: 2019_07_24_035501) do
+
+  create_table "author_books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "author_id"
+    t.integer "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "authors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -19,12 +26,23 @@ ActiveRecord::Schema.define(version: 2019_07_23_084230) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "book_genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "book_id"
+    t.integer "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.integer "page_number"
-    t.string "descript"
+    t.text "descript"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "isbn"
+    t.datetime "publish_date"
+    t.string "publisher"
+    t.string "picture"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
