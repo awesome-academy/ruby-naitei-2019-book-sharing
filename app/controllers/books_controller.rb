@@ -1,5 +1,8 @@
 class BooksController < ApplicationController
-  def index; end
+  def index
+    @books = Book.all
+    @books = Book.search(params[:q]) if params[:q]
+  end
 
   def show
     @book = Book.find_by id: params[:id]

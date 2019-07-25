@@ -577,3 +577,55 @@ a.uitext, .uitext a {
 .likeBtn span, .like-login span {
   color: #4267B2;
 }
+
+// search
+
+.lister-item-image {
+  display: inline-block;
+  vertical-align: top;
+
+  img {
+    width: 125px;
+    height: 200px;
+    object-fit: cover;
+  }
+}
+
+.text-muted {
+  color: rgba(0,0,0,0.6);
+}
+
+.search-book-category {
+  font-size: 13px;
+  a {
+    color: #c05622 !important;
+  }
+}
+
+.search-book-description, .search-book-rate {
+  font-size: 14px;
+  padding-top: 7px;
+}
+
+.lister-item-header {
+  margin: 0 0 5px 0 !important;
+  font: italic 23px "Times New Roman", Times, serif;
+  a {
+    color: #ec5409;
+  }
+}
+
+.text-muted {
+  color: #666;
+  color: rgba(0,0,0,0.6);
+}
+
+.text-small {
+    font-size: 85%;
+}
+
+.book-items {
+  border-bottom: 1px solid #E8E8E8;
+  margin: 0 auto 10px;
+  min-height: 210px;
+}

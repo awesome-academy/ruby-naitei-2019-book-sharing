@@ -9,4 +9,12 @@ class Book < ApplicationRecord
   has_many :posts, dependent: :destroy
 
   validates :name, presence: true
+
+  def self.search pattern
+    if pattern.blank?
+      all
+    else
+      where("name LIKE ?", "#{pattern}%")
+    end
+  end
 end
