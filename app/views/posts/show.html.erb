@@ -1,0 +1,74 @@
+<% book = @post.book %>
+<% post= @post%>
+<div class="review-details">
+  <div class="row">
+      <div class="row">
+        <div class="row">
+          <div class="col-sm-10">
+
+            <div id="comments">
+              <div class="review row post-content">
+
+                  <div class="reviewHeader uitext stacked">
+                    <span class="reviewDate createdAt right text-right">
+                      <%= post.created_at.strftime("%d %b %Y") %>
+                    </span>
+
+                    <!-- Review user rate -->
+                    <!-- TODO -->
+
+                    <b><p><%= post.title %></p></b>
+                  </div>
+              </div>
+            </div>
+
+            <div id="imagecol" class="col-sm-12">
+
+              <div class="bookCoverContainer">
+                <div class="bookCoverPrimary">
+                  <%= link_to book_path(book) do %>
+                    <%= image_tag book.picture.url, id: "postImage" if book.picture? %>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="last col-sm-12" id="metacol">
+                <h1 id="bookTitle" class="bookTitle">
+                  <%= link_to book.name, book_path(book) %>
+                </h1>
+                <div id="bookAuthors" class="stacked">
+                  <span class="by smallText">
+                    <% if book.authors.any? %>
+                      <small><%= t "by" %></small>
+                      <% book.authors.each do |author| %>
+                        <span><%= author.name %></span>
+                        <% unless author == book.authors.last %>,<% end %>
+                      <% end %>
+                    <% end %>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div id="comments">
+              <div class="review row post-content">
+                <div class="reviewText stacked col-sm-12">
+                  <p class="readable">
+                    <span><%= post.content %></span>
+                  </p>
+
+                  <!-- edit and delete post -->
+                  <!-- TODO -->
+
+                </div>
+              </div>
+
+              <!-- like -->
+              <!-- TODO -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

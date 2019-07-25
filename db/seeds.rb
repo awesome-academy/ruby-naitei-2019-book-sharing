@@ -37,3 +37,48 @@ books.each do |book|
     )
   end
 end
+
+User.create!([
+  {email: "vutuananhsama@gmail.com", name: "Anh",
+   password: "1234567", password_confirmation: "1234567",
+  },
+  {email: "tuananh7717@gmail.com", name: "Anh",
+   password: "1234567", password_confirmation: "1234567",
+  },
+  {email: "vu.tuan.anhb@sun-asterisk.com", name: "Anh",
+   password: "1234567", password_confirmation: "1234567",
+  },
+  {email: "abc@gamil.com", name: "Anh",
+   password: "1234567", password_confirmation: "1234567",
+  },
+  {email: "123@gmail.com", name: "Anh",
+   password: "1234567", password_confirmation: "1234567",
+  },
+])
+
+10.times do |n|
+  User.create!(
+    email: Faker::Name.first_name+n.to_s+"@gmail.com",
+    name: Faker::Name.name,
+    password: "1234567", password_confirmation: "1234567",
+  )
+end
+
+Post.create!([
+  {title: Faker::Lorem.sentence,
+  content: Faker::Lorem.paragraph(20),
+  user_id: 1,
+  book_id: 1},
+  {title: Faker::Lorem.sentence,
+  content: Faker::Lorem.paragraph(20),
+  user_id: 3,
+  book_id: 2},
+  {title: Faker::Lorem.sentence,
+  content: Faker::Lorem.paragraph(20),
+  user_id: 2,
+  book_id: 3},
+  {title: Faker::Lorem.sentence,
+  content: Faker::Lorem.paragraph(20),
+  user_id: 3,
+  book_id: 5},
+])

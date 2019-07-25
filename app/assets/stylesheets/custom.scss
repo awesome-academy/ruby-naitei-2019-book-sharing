@@ -448,3 +448,132 @@ h1.bookTitle {
     color: #ec5409;
   }
 }
+
+// post
+.book-reviews {
+  margin: 30px 0;
+  padding: 0 20px;
+}
+
+.imgcol {
+  width: 90%;
+}
+
+.left {
+  float: left;
+}
+
+.review .reviewHeader {
+  font-size: 16px;
+}
+
+.review a {
+  color: #136CB2;
+}
+.stacked {
+  margin-bottom: 10px;
+}
+
+.review .reviewHeader .createdAt, .reviewUser {
+  position: relative;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.reviewHeader p a {
+  color: black !important;
+  font-size: 15px;
+}
+.elementListBrown .reviewDate {
+  color: #bbbbbb;
+}
+a.uitext, .uitext a {
+  text-decoration: none;
+}
+.right {
+  float: right;
+}
+
+.review .reviewHeader .user {
+  font-size: 14px;
+}
+
+.friendReviews .review .reviewText {
+  line-height: 21px;
+}
+
+.updateActionLinks a {
+  color: #00635d;
+}
+
+.readable {
+  font-size: 14px;
+  margin: 0 0 10px 0;
+}
+
+// form
+#postImage {
+  width: 20%;
+}
+
+.write-review {
+  margin: 0 30px;
+  padding: 30px;
+  background: white;
+
+  .pmd-textfield label {
+    color: #383838;
+    font-size: 20px !important;
+    font-weight: 700;
+    padding: 10px 0;
+  }
+
+  .pmd-textfield .form-control {
+    padding: 0 10px;
+  }
+}
+
+.review-details {
+  margin: -15px auto 0;
+  padding: 30px 40px;
+  background: white;
+  width: 960px;
+
+  h1 {
+    font-size: 20px;
+    margin: 0 0 10px!important;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+
+}
+.updateActionLinks span {
+  color: #24965c;
+  font-size: 14px;
+}
+
+.like .pmd-ripple-effect {
+  overflow: visible !important;
+}
+
+.icon-btn .fa {
+  padding: 5px !important;
+}
+
+.icon-btn {
+  border-radius: 50px !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  padding: 4px 10px 4px 5px !important;
+
+  .fa-thumbs-o-up {
+    color: #4267B2;
+  }
+}
+
+.likeBtn span, .like-login span {
+  color: #4267B2;
+}
