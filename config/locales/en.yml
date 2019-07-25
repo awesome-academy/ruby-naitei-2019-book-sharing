@@ -17,3 +17,7 @@ en:
   sign_up_now: "Sign up now"
   invalid_combi: "Invalid combine username and password"
   book_share: "Book Share"
+  book_not_found: "Book not found!"
+  published: "Published"
+  by: "by"
+  genres: "Genres"
