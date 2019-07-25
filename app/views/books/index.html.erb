@@ -1,0 +1,46 @@
+<div class="book-details">
+  <div class="row">
+    <div class="col-sm-8">
+      <% @books.each do |book| %>
+        <div class="row">
+          <div class="row">
+              <div id="imagecol" class="col-sm-4">
+                <div class="bookCoverContainer">
+                  <div class="bookCoverPrimary">
+                    <%= link_to book_path(book) do %>
+                      <%= image_tag book.picture.url, id: "coverImage" if book.picture? %>
+                    <% end %>
+                  </div>
+                  <br>
+                </div>
+              </div>
+              <div class="last col-sm-8" id="metacol">
+                <h1 id="bookTitle" class="bookTitle">
+                  <%= link_to book.name, book_path(book) %>
+                </h1>
+                <div id="bookAuthors" class="stacked">
+                  <span class="by smallText">
+                    <% if book.authors.any? %>
+                      <small><%= t "by" %></small>
+                      <% book.authors.each do |author| %>
+                        <span><%= author.name %></span>
+                        <% unless author == book.authors.last %>,<% end %>
+                      <% end %>
+                    <% end %>
+                  </span>
+                </div>
+                <div id="details" class="uitext darkGreyText">
+                  <div class="">
+                    <%= t "published" %><%= book.publish_date.strftime("%d %b %Y") %>
+                    <%= t "by" %><b><%= book.publisher %></b>
+                  </div>
+                </div>
+              </div>
+              <br>
+          </div>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+<br>
