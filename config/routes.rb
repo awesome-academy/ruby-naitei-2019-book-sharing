@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   resources :users
   resources :books, only: %i(index show)
   resources :genres, only: :show
-  resources :posts
+  resources :posts do
+    resources :likes, only: %i(create destroy)
+  end
 end

@@ -42,7 +42,7 @@ User.create!([
   {email: "vutuananhsama@gmail.com", name: "Anh",
    password: "1234567", password_confirmation: "1234567",
   },
-  {email: "tuananh7717@gmail.com", name: "Anh",
+  {email: "tuananh77717@gmail.com", name: "Anh",
    password: "1234567", password_confirmation: "1234567",
   },
   {email: "vu.tuan.anhb@sun-asterisk.com", name: "Anh",
