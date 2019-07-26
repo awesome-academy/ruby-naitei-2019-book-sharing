@@ -5,7 +5,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li>
-        <%= link_to "#", data: {turbolinks: false} do %>
+        <%= link_to root_path, data: {turbolinks: false} do %>
           <%= t "user.home" %>
         <% end %>
       </li>
@@ -22,11 +22,11 @@
     </ul>
 
     <%= form_tag books_path, method: :get, class:"navbar-form navbar-left" do %>
-      <div class="form-group">
+      <div class="form-group" id="searchDiv">
         <%= text_field_tag :q, params[:q], class:"form-control",
           placeholder:"Title / ISBN / Author" %>
       </div>
-      <%= button_tag(class: "button btn btn-default") do  %>
+      <%= button_tag class: "button btn btn-default" do  %>
         <i class="glyphicon glyphicon-search"></i>
       <% end %>
     <% end %>

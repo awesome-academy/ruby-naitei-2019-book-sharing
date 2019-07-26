@@ -63,10 +63,57 @@
                 </div>
               </div>
 
-              <!-- like -->
-              <!-- TODO -->
-            </div>
+              <input type="hidden" id="post-id" value="<%= @post.id %>">
+                <% if logged_in? %>
+                  <span class="like">
+                    <% if like(@post).present? %>
+                      <span class="btn icon-btn btn-info unlikeBtn
+                        pmd-ripple-effect pmd-btn-raised"
+                        data="<%= @post.id %>" like-id="<%= like(@post).id %>">
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <%= t("liked") %>
+                      </span>&nbsp;
+                      <% if @post.likes.size > 0 %>
+                        <span class="like-counter like-count-<%= @post.id %>">
+                          <%= @post.likes.size %>
+                        </span><%= t("like(s)") %>
+                      <% else %>
+                        <%= t("first_like") %>
+                      <% end %>
+                    <% else %>
+                      <span class="btn icon-btn btn-default likeBtn
+                        pmd-ripple-effect pmd-btn-raised"
+                        data="<%= @post.id %>">
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                        <span><%= t("like_it") %></span>
+                      </span>&nbsp;
+                      <% if @post.likes.size > 0 %>
+                        <span class="like-counter like-count-<%= @post.id %>">
+                          <%= @post.likes.size %>
+                        </span><%= t("like(s)") %>
+                      <% else %>
+                        <%= t("first_like") %>
+                      <% end %>
+                    <% end %>
+                  </span>
+                <% else %>
+                  <span class="like-login">
+                    <span class="btn icon-btn pmd-ripple-effect
+                      pmd-btn-raised loginBtn">
+                      <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                      <span><%= t("like") %></span>
+                    </span>&nbsp;
+                    <% if @post.likes.size > 0 %>
+                      <span class="like-counter like-count-<%= @post.id %>">
+                        <%= @post.likes.size %>
+                      </span><%= t("like(s)") %>
+                    <% else %>
+                      <%= t("first_like") %>
+                    <% end %>
+                  </span>
+                <% end %><br><br>
 
+            </div>
           </div>
         </div>
       </div>
