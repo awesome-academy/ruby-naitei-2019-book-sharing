@@ -3,6 +3,9 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+$cancel-success: #259b24;
+$cancel-failure: #ff1818;
+
 @mixin box_sizing {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -633,4 +636,207 @@ a.uitext, .uitext a {
   border-bottom: 1px solid #E8E8E8;
   margin: 0 auto 10px;
   min-height: 210px;
+}
+
+// comment
+
+.comments-title {
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 10px 0;
+}
+
+.posts {
+  position: relative;
+
+  .avatar {
+    left: 0;
+    position: absolute;
+    transition: left .2s linear;
+  }
+
+  .avatar .user {
+    background: #dbdfe4;
+    padding: 0;
+    position: relative;
+    z-index: 100;
+  }
+
+  .avatar img {
+    height: 48px;
+    width: 48px;
+  }
+
+  .textarea-wrapper--top-level .textarea-wrapper {
+    margin-left: 60px;
+  }
+
+  .textarea-wrapper {
+    background: #fff;
+    border: 2px solid #dbdfe4;
+    border-radius: 4px;
+    margin: 0 0 0 48px;
+    position: relative;
+  }
+
+  textarea {
+    border: 0;
+    color: #2a2e2e;
+    cursor: text;
+    display: block;
+    font-size: 16px;
+    height: auto;
+    line-height: 1.4;
+    margin: 0;
+    min-height: 44px;
+    overflow-y: scroll;
+    padding: 6px 10px 8px;
+    resize: none;
+    transition: all .15s ease-in-out;
+    width: 100%;
+  }
+}
+
+.post-content {
+  position: relative;
+  margin-bottom: 34px;
+
+  .avatar {
+    position: absolute;
+    transition: left .2s linear;
+  }
+
+  .avatar .user {
+    background: #dbdfe4;
+    padding: 0;
+    position: relative;
+    z-index: 100;
+  }
+
+  .avatar img {
+    height: 60px;
+    width: 60px;
+  }
+
+  .post-body {
+    margin: 0 0 0 72px;
+    position: relative;
+  }
+
+  .comment-header {
+    font-size: 16px;
+    line-height: 1;
+    margin-bottom: 3px;
+    padding-right: 46px;
+  }
+
+  .comment-header .author {
+    color: #656c7a;
+    font-weight: 700;
+  }
+
+  .author a {
+    color: #1f7a99 !important;
+    font-weight: 600 !important;
+    font-size: 1.2em;
+  }
+
+  .post-meta {
+    display: inline-block;
+  }
+
+  .bullet {
+    color: #c2c6cc;
+    line-height: 1.4;
+    padding: 0;
+  }
+
+  .comment-header a {
+    color: #656c7a;
+    font-weight: 500;
+  }
+
+  .post-content .post-message-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .post-message p:last-child {
+    line-height: 21px;
+    margin: 0;
+  }
+
+  .post-message {
+    [type="button"],
+    [type="submit"] {
+      border: 0;
+      border-radius: 2px;
+      color: white;
+      display: inline-block;
+      font-size: 1em;
+      margin: 5px 5px 5px 0;
+      padding: 2px 5px;
+      width: 15%;
+    }
+
+    [type="button"] {
+      background: $cancel-failure;
+    }
+
+    [type="submit"] {
+      background: $cancel-success;
+    }
+  }
+
+  .comment-footer > span {
+    float: left;
+    font-size: 16px;
+    line-height: 15px;
+    list-style-type: none;
+    margin-right: 7px;
+    padding-top: 5px;
+  }
+
+  .comment-footer .bullet {
+    line-height: 1.45;
+  }
+
+  .comment-footer {
+    .btn-default {
+      color: #5b9bd1 !important;
+      font-weight: 500;
+      padding: 0 !important;
+      text-transform: capitalize;
+      min-width: 0 !important;
+    }
+
+    .btn-default:hover {
+      background: transparent !important;
+      color: #315f99;
+    }
+  }
+
+  .reply {
+    border-radius: 4px;
+    padding: 2px 0;
+  }
+}
+
+.time-ago {
+  font-size: 14px;
+}
+
+.post-message {
+  font-size: 18px !important;
+}
+
+pre {
+  background-color: #fff;
+  border: 0 !important;
+  font-family: inherit;
+  font-size: 16px !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :books, only: %i(index show)
   resources :genres, only: :show
   resources :posts do
+    resources :comments
     resources :likes, only: %i(create destroy)
   end
 end

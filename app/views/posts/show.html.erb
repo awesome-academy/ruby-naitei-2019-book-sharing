@@ -6,20 +6,18 @@
         <div class="row">
           <div class="col-sm-10">
 
-            <div id="comments">
-              <div class="review row post-content">
+            <div class="review row post-content">
 
-                  <div class="reviewHeader uitext stacked">
-                    <span class="reviewDate createdAt right text-right">
-                      <%= post.created_at.strftime("%d %b %Y") %>
-                    </span>
+                <div class="reviewHeader uitext stacked">
+                  <span class="reviewDate createdAt right text-right">
+                    <%= post.created_at.strftime("%d %b %Y") %>
+                  </span>
 
-                    <!-- Review user rate -->
-                    <!-- TODO -->
+                  <!-- Review user rate -->
+                  <!-- TODO -->
 
-                    <b><p><%= post.title %></p></b>
-                  </div>
-              </div>
+                  <b><p><%= post.title %></p></b>
+                </div>
             </div>
 
             <div id="imagecol" class="col-sm-12">
@@ -50,18 +48,18 @@
               </div>
             </div>
 
-            <div id="comments">
-              <div class="review row post-content">
-                <div class="reviewText stacked col-sm-12">
-                  <p class="readable">
-                    <span><%= post.content %></span>
-                  </p>
 
-                  <!-- edit and delete post -->
-                  <!-- TODO -->
+            <div class="review row post-content">
+              <div class="reviewText stacked col-sm-12">
+                <p class="readable">
+                  <span><%= post.content %></span>
+                </p>
 
-                </div>
+                <!-- edit and delete post -->
+                <!-- TODO -->
+
               </div>
+
 
               <input type="hidden" id="post-id" value="<%= @post.id %>">
                 <% if logged_in? %>
@@ -112,6 +110,26 @@
                     <% end %>
                   </span>
                 <% end %><br><br>
+
+                <h2>Comments</h2><hr>
+                <% if logged_in? %>
+                  <%= render "comments/form", post: @post,
+                    comment: @support.new_comment %>
+                  <div id="comments" class="comments-part">
+                    <%= render "comments/comments", post: @post,
+                      comments: @support.comments %>
+                  </div>
+                <% else %>
+                  <h3>
+                    <%= link_to t("login"), login_path,
+                    data: {turbolinks: false} %>
+                    <%= t ".to_comment" %>
+                  </h3><br>
+                  <div id="comments" class="comments-part">
+                    <%= render "comments/comments", post: @post,
+                      comments: @support.comments %>
+                  </div>
+                <% end %>
 
             </div>
           </div>
