@@ -1,0 +1,60 @@
+<div class="comments" id="list-reviews">
+  <% if comments.any? %>
+    <% comments.each do |comment| %>
+      <div class="post-content">
+        <div class="avatar">
+          <%= link_to "#", target: "_blank", class: "user",
+            "data-turbolinks": false do %>
+          <% end %>
+        </div>
+        <div class="post-body">
+          <div class="comment-header">
+            <span class="post-byline">
+              <span class="author publisher-anchor-color">
+                <%= link_to "#", target: "_blank",
+                  "data-turbolinks": false do %>
+                  <%= comment.user.name %>
+                <% end %>
+              </span>
+            </span>
+            <span class="post-meta">
+              <span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+              <span class="time-ago">
+                <%= distance_of_time_in_words(comment.created_at.to_s, Time.zone.now) %>
+              </span>
+              <span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+              <span class="edited-<%= comment.id %> time-ago"></span>
+            </span>
+          </div>
+          <div class="post-message">
+            <% if current_user == comment.user %>
+              <pre class="comment-item-<%= comment.id%>" id="<%= comment.id%>"><%= comment.content %></pre>
+            <% else %>
+              <pre><%= comment.content %></pre>
+            <% end %>
+          </div>
+          <div class="comment-footer">
+            <% if current_user == comment.user %>
+              <span class="reply">
+                <span class="text">
+                  <%= button_tag t("edit"), value: post.id, id: comment.id,
+                    class: "edit-comment btn btn-default" %>
+                </span>
+                <span class="bullet time-ago-bullet" aria-hidden="true">•</span>
+                <span class="text">
+                  <%= button_tag t("delete"), value: post.id, id: comment.id,
+                    class: "delete-comment btn btn-default" %>
+                </span>
+              </span>
+            <% end %>
+          </div>
+        </div>
+      </div><br>
+    <% end %>
+    <%= paginate comments, theme: "twitter-bootstrap-3" %>
+  <% else %>
+    <div id="no-posts">
+      <h3><%= t "first_comment" %></h3>
+    </div>
+  <% end %>
+</div>
