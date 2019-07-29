@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   resources :users
-  resources :books, only: %i(index show)
+  resources :books, only: %i(index show) do
+    resources :rates, only: [:create]
+  end
   resources :genres, only: :show
   resources :posts do
     resources :comments

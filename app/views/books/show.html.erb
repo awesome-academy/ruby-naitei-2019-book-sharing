@@ -12,8 +12,24 @@
               </div>
 
               <!-- rate book  -->
-              <!-- TODO -->
-
+              <p class="user-rate"><%= t "rate_book" %>:</p>
+              <% if current_user %>
+                <input type="hidden" id="is_rate" value="<%= rate(@book).present? %>">
+                <div class="hidden current-book-id" id="<%= @book.id %>" user_id="<%= current_user.id %>"></div>
+                <div id="rate">
+                  <% (1..(load_rate author_rate(@book, current_user)).first).each do |s| %>
+                    <img src="/assets/star-on" class="rate">
+                  <% end  %>
+                  <% (1..(load_rate author_rate(@book, current_user)).second).each do |s| %>
+                    <img src="/assets/star-half" class="rate">
+                  <% end  %>
+                  <% (1..(load_rate author_rate(@book, current_user)).last).each do |s| %>
+                    <img src="/assets/star-off" class="rate">
+                  <% end %>
+                </div>
+              <% else %>
+                <%= link_to t ("log_in"), login_path %> to rate
+              <% end %>
             </div>
           </div>
 

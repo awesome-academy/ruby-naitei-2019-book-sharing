@@ -13,6 +13,7 @@ en:
   activate_account: "Activate account"
   welcome: "welcome"
   rails: "Rails app"
+  rate_book: "Rate this book"
   log_in: "Log in"
   sign_up_now: "Sign up now"
   invalid_combi: "Invalid combine username and password"
