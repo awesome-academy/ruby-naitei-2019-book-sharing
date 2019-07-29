@@ -8,6 +8,23 @@ en:
       name: "Name"
       password: "Password"
       pass_confirm: "Confirmation"
+    edit:
+      edit: "Edit users"
+      update: "Update your Profile"
+      save: "Save changes"
+      change: "change"
+    update:
+      updated: "Profile Updated"
+    logged_in_user:
+      please_login: "Please Login"
+    index:
+      users: "All users"
+    destroy:
+      deleted: "User deleted"
+      danger: "You cant do it."
+      notice: "Not deleted"
+    load_user:
+      user_not_found: "user not found"
   error: "error"
 
   activate_account: "Activate account"
@@ -43,3 +60,6 @@ en:
   content: "Content"
   submit: "Submit"
   login: "Please log in"
+  reviewed: "reviewed"
+  posted: "posted"
+  ago: "ago"

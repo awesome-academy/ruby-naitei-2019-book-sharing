@@ -696,6 +696,41 @@ a.uitext, .uitext a {
     transition: all .15s ease-in-out;
     width: 100%;
   }
+
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .user_book {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .minicontent {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 10px 0;
+      width: 130px;
+      height: 200px;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
 }
 
 .post-content {
@@ -839,4 +874,14 @@ pre {
   font-size: 16px !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
 }

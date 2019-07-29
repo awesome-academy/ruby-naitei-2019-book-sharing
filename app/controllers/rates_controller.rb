@@ -6,7 +6,7 @@ class RatesController < ApplicationController
              @book.rates.new rate_params
            else
              Rate.new rate_params
-    end
+           end
     rate.user_id = current_user.id
     rate.save
   end
@@ -21,6 +21,6 @@ class RatesController < ApplicationController
   end
 
   def rate_params
-    params.permit :score, :user_id, :book_id
+    params.permit :score, :book_id
   end
 end

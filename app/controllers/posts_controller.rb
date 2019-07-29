@@ -21,4 +21,8 @@ class PostsController < ApplicationController
   def load_support
     @support = Supports::Posts.new post: Post.all, param: params
   end
+
+  def post_params
+    params.require(:post).permit(:content)
+  end
 end
