@@ -17,4 +17,12 @@ class Book < ApplicationRecord
       where("name LIKE ?", "#{pattern}%")
     end
   end
+
+  def average_rate
+    book = Book.find_by id: id
+    rates = book.rates
+    size = rates.size
+    total = rates.sum(&:score)
+    return total.to_f / size unless size.zero?
+  end
 end

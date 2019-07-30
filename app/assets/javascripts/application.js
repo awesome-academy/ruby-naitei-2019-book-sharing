@@ -17,3 +17,4 @@
 //= require bootstrap
 //= require post
 //= require comment
+//= require rate
