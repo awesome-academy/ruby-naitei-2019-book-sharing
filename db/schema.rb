@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_073010) do
+ActiveRecord::Schema.define(version: 2019_07_29_164308) do
 
   create_table "author_books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "author_id"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(version: 2019_07_29_073010) do
     t.string "picture"
   end
 
+  create_table "ckeditor_assets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "data_file_name", null: false
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.string "type", limit: 30
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
+  end
+
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
@@ -74,6 +84,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_073010) do
     t.integer "user_id"
     t.integer "book_id"
     t.string "title"
+    t.index ["user_id", "created_at"], name: "index_posts_on_user_id_and_created_at"
   end
 
   create_table "rates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -82,6 +93,16 @@ ActiveRecord::Schema.define(version: 2019_07_29_073010) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "book_id"
+  end
+
+  create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

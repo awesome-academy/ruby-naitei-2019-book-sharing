@@ -1,0 +1,190 @@
+<% provide(:title) %>
+<div class="slogan">
+</div>
+<div class="body">
+  <div class="body_resize">
+    <div class="row">
+      <div class="left col-sm-8">
+
+        <% if logged_in? %>
+          <% if current_user.following.any? %>
+            <h1>Your following's reviews</h1><hr>
+            <% @feed_items.each do |post| %>
+              <div class="row">
+                <div class="col-sm-4">
+                  <%= link_to book_path(post.book) do %>
+                    <%= image_tag post.book.picture.url, class: "home-book-image" if post.book.picture? %>
+                  <% end %>
+                </div>
+                <div class="col-sm-8">
+                  <h2>
+                    <%= link_to post_path(post) do %>
+                      <b><%= post.title %></b>
+                    <% end %>
+                  </h2>
+                  <span><b><%= post.book.name %></b></span><br>
+
+                  <span class="post-date">
+                    Reviewed by
+                    <%= link_to post.user.name, user_path(post.user),
+                      data: {turbolinks: false} %>
+                  </span>&nbsp;&nbsp;|
+                  <div class="wrapIcon comment">
+                    <span class="glyphicon glyphicon-time amount"></span>
+                    <span title="<%= post.created_at.to_s %>" class="amount">
+                      <%= post.created_at.strftime("%d %b %Y") %>
+                    </span>
+                  </div>&nbsp;&nbsp;|
+                  <div class="wrapIcon comment">
+                    <span class="fa fa-comments"></span>&nbsp;
+                    <p class="amount comment ng-binding">
+                      <%= post.comments.count %>
+                    </p>
+                  </div>&nbsp;&nbsp;|
+                  <div class="wrapIcon like">
+                    <span class="fa fa-thumbs-o-up"></span>&nbsp;
+                    <p class="amount like ng-binding">
+                      <%= post.likes.count %>
+                    </p>
+                  </div>
+                  <p>
+                    <%= truncate_html(post.content, length: 350, omission: ' ...') %>
+                  </p>
+                </div>
+              </div>
+              <hr>
+            <% end %>
+            <div class="review-pagination text-center">
+              <%= paginate @feed_items, theme: "twitter-bootstrap-3" %>
+            </div>
+          <% else %>
+            <h1>Latest reviews</h1><hr>
+            <% @posts.each do |post| %>
+              <div class="row">
+                <div class="col-sm-4">
+                  <%= link_to book_path(post.book) do %>
+                    <%= image_tag post.book.picture.url, class: "home-book-image" if post.book.picture? %>
+                  <% end %>
+                </div>
+                <div class="col-sm-8">
+                  <h2>
+                    <%= link_to post_path(post) do %>
+                      <b><%= post.title %></b>
+                    <% end %>
+                  </h2>
+                  <span><b><%= post.book.name %></b></span><br>
+
+                  <span class="post-date">
+                    Reviewed by <%= link_to post.user.name, user_path(post.user),
+                    data: {turbolinks: false} %>
+                  </span>&nbsp;&nbsp;|
+                  <div class="wrapIcon comment">
+                    <span class="glyphicon glyphicon-time amount"></span>
+                    <span title="<%= post.created_at.to_s %>" class="amount">
+                      <%= post.created_at.strftime("%d %b %Y") %>
+                    </span>
+                  </div>&nbsp;&nbsp;|
+                  <div class="wrapIcon comment">
+                    <span class="fa fa-comments"></span>&nbsp;
+                    <p class="amount comment ng-binding">
+                      <%= post.comments.count %>
+                    </p>
+                  </div>&nbsp;&nbsp;|
+                  <div class="wrapIcon like">
+                    <span class="fa fa-thumbs-o-up"></span>&nbsp;
+                    <p class="amount like ng-binding">
+                      <%= post.likes.count %>
+                    </p>
+                  </div>
+                  <p>
+                    <%= truncate_html(post.content, length: 350, omission: ' ...') %>
+                  </p>
+                </div>
+              </div>
+              <hr>
+            <% end %>
+            <div class="review-pagination text-center">
+              <%= paginate @posts, theme: "twitter-bootstrap-3" %>
+            </div>
+          <% end %>
+        <% else %>
+          <h1>Latest posts</h1><hr>
+          <% @posts.each do |post| %>
+            <div class="row">
+              <div class="col-sm-4">
+                <%= link_to book_path(post.book) do %>
+                    <%= image_tag post.book.picture.url, class: "home-book-image" if post.book.picture? %>
+                  <% end %>
+              </div>
+              <div class="col-sm-8">
+                <h2>
+                  <%= link_to post_path(post) do %>
+                    <b><%= post.title %></b>
+                  <% end %>
+                </h2>
+                <span><b><%= post.book.name %></b></span><br>
+
+                <span class="post-date">
+                  Reviewed by <%= link_to post.user.name, user_path(post.user),
+                  data: {turbolinks: false} %>
+                </span>&nbsp;&nbsp;|
+                <div class="wrapIcon comment">
+                  <span class="glyphicon glyphicon-time amount"></span>
+                  <span title="<%= post.created_at.to_s %>" class="amount">
+                    <%= post.created_at.strftime("%d %b %Y") %>
+                  </span>
+                </div>&nbsp;&nbsp;|
+                <div class="wrapIcon comment">
+                  <span class="fa fa-comments"></span>&nbsp;
+                  <p class="amount comment ng-binding">
+                    <%= post.comments.count %>
+                  </p>
+                </div>&nbsp;&nbsp;|
+                <div class="wrapIcon like">
+                  <span class="fa fa-thumbs-o-up"></span>&nbsp;
+                  <p class="amount like ng-binding">
+                    <%= post.likes.count %>
+                  </p>
+                </div>
+                <p>
+                  <%= truncate_html(post.content, length: 350, omission: ' ...') %>
+                </p>
+              </div>
+            </div>
+            <hr>
+          <% end %>
+          <div class="review-pagination text-center">
+            <%= paginate @posts, theme: "twitter-bootstrap-3" %>
+          </div>
+        <% end %>
+
+      </div>
+
+      <div class="right col-sm-4">
+        <div id="ranking-list">
+          <h3 class="title">Top users</h3>
+          <% @top_users.each do |user| %>
+          　<div class="row ranking-body">
+              <div class="userinfo">
+                <div class="name">
+                  <%= link_to user_path(user) do %>
+                    <b><%= user.name %></b>
+                  <% end %>
+                </div>
+                <div class="col-sm-8">
+                  <div class="status">
+                    <p>Reviews: <b><%= user.posts.count %></b></p>
+                    <p>Likes: <strong><%= user.count_getted_like %></strong></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="headline-link">
+            <a href="#" class="icon arrow1"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<li id="post-<%= post.id %>">
+  <%= link_to gravatar_for(post.user, size: Settings.post_size),
+     post.user %>
+  <span class="user"><%= link_to post.user.name, post.user %></span>
+  <%= t "reviewed" %>
+  <%= link_to post.book.name, post.book %>
+  <span class="minicontent">
+    <%= link_to post.title, post %>
+    <%= post.content %>
+    <%= image_tag post.book.picture.url, id: "img" if post.book.picture? %>
+  </span>
+  <span class="timestamp">
+    <%= t "posted" %> <%=  time_ago_in_words(post.created_at) %>
+    <%= t "ago" %>.
+  </span>
+</li>

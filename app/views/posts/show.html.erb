@@ -29,25 +29,19 @@
                   <% end %>
                 </div>
               </div>
-
-              <div class="last col-sm-12" id="metacol">
-                <h1 id="bookTitle" class="bookTitle">
-                  <%= link_to book.name, book_path(book) %>
-                </h1>
-                <div id="bookAuthors" class="stacked">
-                  <span class="by smallText">
-                    <% if book.authors.any? %>
-                      <small><%= t "by" %></small>
-                      <% book.authors.each do |author| %>
-                        <span><%= author.name %></span>
-                        <% unless author == book.authors.last %>,<% end %>
-                      <% end %>
-                    <% end %>
-                  </span>
-                </div>
-              </div>
             </div>
 
+            <h1 id="bookTitle" class="bookTitle">
+              <%= link_to book.name, book_path(book) %>
+            </h1>
+            <div id="imagecol" class="stacked">
+              <span class="by smallText">
+                <% if book.authors.any? %>
+                  <small><%= t "by" %></small>
+                  <%= book.authors.map(&:name).join(", ") %>
+                <% end %>
+              </span>
+            </div>
 
             <div class="review row post-content">
               <div class="reviewText stacked col-sm-12">
@@ -55,8 +49,11 @@
                   <span><%= post.content %></span>
                 </p>
 
-                <!-- edit and delete post -->
-                <!-- TODO -->
+                <% if logged_in? && (current_user.id == @post.user.id) %>
+                  <%= link_to t("edit"), edit_post_path(@post), class:"btn btn-success" %>
+                  <%= link_to t("delete"), post_path(@post), method: :delete,
+                    class:"btn btn-danger" %>
+                <% end %>
 
               </div>
 

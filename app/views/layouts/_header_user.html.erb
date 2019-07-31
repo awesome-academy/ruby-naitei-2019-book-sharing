@@ -1,7 +1,7 @@
 <li>
-  <%= link_to "#", class: "dropbtn", data: {turbolinks: false} do %>
+  <%= link_to new_post_path, class: "dropbtn" do %>
     <i class="fa fa-pencil-square-o fa-md" aria-hidden="true"></i>
-    <%= t "user.write_review" %>
+    <%= t "Write Post" %>
   <% end %>
 </li>
 
@@ -12,8 +12,7 @@
   </a>
   <ul class="dropdown-menu dropdown-menu-right">
     <li>
-      <%= link_to user_path(current_user), class:"blog-list-item-anchor",
-        data: {turbolinks: false} do %>
+      <%= link_to user_path(current_user), class:"blog-list-item-anchor" do %>
         <span class="blog-list-item-info">
           <span class="blog-list-item-info-name">
             <%= current_user.name %>
@@ -23,20 +22,17 @@
     </li>
     <li role="separator" class="divider"></li>
     <li>
-      <%= link_to "#", class:"blog-sub-nav-item-link",
-        data: {turbolinks: false} do %>
-        <%= t "user.reviews" %>
+      <%= link_to "#", class:"blog-sub-nav-item-link" do %>
+        <%= t "user.posts" %>
       <% end %>
     </li>
     <li>
-      <%= link_to "#", method: :get,
-        data: {turbolinks: false} do %>
+      <%= link_to "#", method: :get do %>
         <i class="fa fa-cog" aria-hidden="true"></i> <%= t "user.settings" %>
       <% end %>
     </li>
     <li>
-      <%= link_to logout_path, method: :delete,
-        data: {turbolinks: false} do %>
+      <%= link_to logout_path, method: :delete do %>
         <i class="fa fa-sign-out" aria-hidden="true"></i> <%= t "user.sign_out" %>
       <% end %>
     </li>

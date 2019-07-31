@@ -1,0 +1,55 @@
+<%= form_for post do |form| %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, t("error")) %> <%= t("post_error") %></h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if params[:book_id].present? %>
+    <h3 class="title-font">
+      <%= t "write_post" %> for
+      <span style="color: red">
+        <%= link_to book.name, book_path(book) %>
+      </span>
+    </h3><br>
+  <% else %>
+    <h1 class="text-left"><%= t "form_title" %></h1><br>
+  <% end %>
+  <div class="form-group pmd-textfield">
+    <%= form.label :title, class: "control-label" %> <span style="color: red;">*</span><br>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group pmd-textfield">
+    <% if params[:book_id].present? %>
+      <%= form.hidden_field :book_id, value: params[:book_id] %>
+    <% else %>
+      <label class="control-label">
+        <%= t "book_name" %>
+        <span style="color: red;">*</span>
+      </label>
+      <%= form.select :book_id, support.load_books,
+        {include_blank: t("choose_book")}, {class: "select-with-search
+        form-control pmd-select2 select-book required"} %>
+    <% end %>
+  </div>
+
+  <div class="form-group pmd-textfield">
+    <%= form.label :content, class: "control-label" %><br>
+    <%= form.text_area :content, class: "ckeditor" %>
+  </div>
+
+  <div class="text-center">
+    <div class="actions", style="margin: 5px 230px 3px 230px;">
+      <%= form.submit class:"btn btn-primary"%>
+    </div>
+    </br>
+    <%= link_to t("back"), current_user, class:"btn btn-default" %>
+  </div>
+<% end %>
