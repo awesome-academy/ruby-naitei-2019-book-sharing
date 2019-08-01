@@ -56,7 +56,7 @@ User.create!([
   },
 ])
 
-10.times do |n|
+58.times do |n|
   User.create!(
     email: Faker::Name.first_name+n.to_s+"@gmail.com",
     name: Faker::Name.name,
@@ -71,6 +71,22 @@ Post.create!([
   book_id: 1},
   {title: Faker::Lorem.sentence,
   content: Faker::Lorem.paragraph(20),
+  user_id: 1,
+  book_id: 2},
+  {title: Faker::Lorem.sentence,
+  content: Faker::Lorem.paragraph(20),
+  user_id: 1,
+  book_id: 3},
+  {title: Faker::Lorem.sentence,
+  content: Faker::Lorem.paragraph(20),
+  user_id: 1,
+  book_id: 4},
+  {title: Faker::Lorem.sentence,
+  content: Faker::Lorem.paragraph(20),
+  user_id: 1,
+  book_id: 5},
+  {title: Faker::Lorem.sentence,
+  content: Faker::Lorem.paragraph(20),
   user_id: 3,
   book_id: 2},
   {title: Faker::Lorem.sentence,
@@ -82,3 +98,10 @@ Post.create!([
   user_id: 3,
   book_id: 5},
 ])
+
+users = User.all
+user  = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

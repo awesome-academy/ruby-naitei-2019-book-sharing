@@ -28,7 +28,7 @@
                   <% end %>
                 </div>
               <% else %>
-                <%= link_to t ("log_in"), login_path %> to rate
+                <%= link_to t("log_in"), login_path %> to rate
               <% end %>
             </div>
           </div>
@@ -41,10 +41,7 @@
               <span class="by smallText">
                 <% if @book.authors.any? %>
                   <small><%= t "by" %></small>
-                  <% @book.authors.each do |author| %>
-                    <span><%= author.name %></span>
-                    <% unless author == @book.authors.last %>,<% end %>
-                  <% end %>
+                  <%= @book.authors.map(&:name).join(", ") %>
                 <% end %>
               </span>
             </div>
@@ -64,6 +61,13 @@
                 <%= t "by" %><b><%= @book.publisher %></b>
               </div>
             </div><br>
+
+            <%= link_to new_post_path(book_id: @book.id),
+              data: {turbolinks: false}, title: "Write post",
+              class: "btn pmd-ripple-effect btn-info" do %>
+              <p class="hidden-xs write-btn">Review this book</p>
+              <i class="fa fa-pencil-square-o hidden-sm hidden-md hidden-lg"></i>
+            <% end %>
 
           </div>
         </div>

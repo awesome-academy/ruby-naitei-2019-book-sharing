@@ -6,7 +6,7 @@ class RatesController < ApplicationController
              @book.rates.new rate_params
            else
              Rate.new rate_params
-    end
+           end
     rate.user_id = current_user.id
     rate.save
   end

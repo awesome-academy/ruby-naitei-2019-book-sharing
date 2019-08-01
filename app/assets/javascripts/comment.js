@@ -2,11 +2,13 @@ $(document).ready(function(){
   $('.best_in_place').best_in_place();
 });
 
-$(document).keypress(function(event){
-
+$(document).on('keydown', "#comment_content", function(e){
   var keycode = (event.keyCode ? event.keyCode : event.which);
-  if(keycode == '13'){
-    $('#submitBtn').click();
+  if (e.keyCode == 13 && !e.shiftKey){
+    e.preventDefault();
+      if(keycode == '13'){
+        $('#submitBtn').click();
+      }
   }
 });
 
@@ -76,7 +78,7 @@ $(document).on('click', '.edit-comment', function() {
     $(this).html('Save').addClass('edit-mode');
     contents.each(function(){
       var txt = $(this).text();
-      var input = $('<textarea class="edit-content form-control">');
+      var input = $('<textarea class="edit-content form-control id="edit-comment">');
       input.val(txt);
       $(this).html(input);
     });

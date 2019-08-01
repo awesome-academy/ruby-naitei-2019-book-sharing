@@ -1,4 +1,4 @@
-en:
+vi:
   hello: "Hello world"
   ruby_book: "RubyNaitei2019BookSharing"
   users:
@@ -9,7 +9,8 @@ en:
       password: "Mật khẩu"
       pass_confirm: "Xác nhận"
       edit_user: "Sửa đổi thông tin"
-
+  error: "lỗi"
+  create_my_account: "Tạo tài khoản"
   activate_account: "Tài khoản được kích hoạt"
   welcome: "Xin chào"
   rails: "Rails app"
@@ -42,3 +43,16 @@ en:
   content: "Nội dung"
   submit: "Gửi"
   login: "Hãy đăng nhập trước"
+  write_post: "Viết bài"
+  form_title: "Đánh giá về sách"
+  book_name: "Tên sách"
+  choose_book: "Lựa chọn sách"
+  posts: "Bài viết"
+  new_post: "Viết bài"
+  post_success: "Tạo bài viết thành công"
+  update_success: "Chỉnh sửa thành công"
+  destroy_success: "Xóa thành công"
+  post_error: "làm cho bài viết không được lưu"
+  back: "Back"
+  edit: "Sửa"
+  destroy: "Xóa"

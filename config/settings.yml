@@ -2,3 +2,8 @@ maximum_length_name: 50
 maximum_length_email: 255
 minimum_length_pass: 6
 page_number: 5
+paginate_user: 25
+paginate_post: 30
+option: 80
+post_size: 50
+content_value: 1140

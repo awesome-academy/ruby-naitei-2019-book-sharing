@@ -1,0 +1,23 @@
+<h1><%= t("posts") %></h1>
+<div style="margin-left: 300px">
+<table>
+  <thead>
+    <tr>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= link_to post.title, post %></td>
+        <td><button type="button" class="btn btn-default" style="margin-left: 200px"><%= link_to "Show", post %></button></td>
+        <td><button type="button" class="btn btn-default"><%= link_to t("edit"), edit_post_path(post) %></button></td>
+        <td><button type="button" class="btn btn-default"><%= link_to t("destroy"), post, method: :delete, data: { confirm: "Are you sure?" } %></button></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to t("new_post"), new_post_path %>
+</div>

@@ -5,17 +5,17 @@
     </div>
     <ul class="nav navbar-nav">
       <li>
-        <%= link_to root_path, data: {turbolinks: false} do %>
+        <%= link_to root_path do %>
           <%= t "user.home" %>
         <% end %>
       </li>
       <li>
-        <%= link_to "#", data: {turbolinks: false} do %>
+        <%= link_to "#" do %>
           <%= t "home.about" %>
         <% end %>
       </li>
       <li>
-        <%= link_to "#", data: {turbolinks: false} do %>
+        <%= link_to "#" do %>
           <%= t "home.contact" %>
         <% end %>
       </li>
@@ -36,12 +36,12 @@
         <%= render "layouts/header_user" %>
       <% else %>
         <li>
-          <%= link_to signup_path, method: :get, data: {turbolinks: false} do %>
+          <%= link_to signup_path, method: :get do %>
             <span class="glyphicon glyphicon-user"></span> <%= t "user.sign_up" %>
           <% end %>
         </li>
         <li>
-          <%= link_to login_path, method: :get, data: {turbolinks: false} do %>
+          <%= link_to login_path, method: :get  do %>
             <span class="glyphicon glyphicon-log-in"></span> <%= t "user.login" %>
           <% end %>
         </li>
