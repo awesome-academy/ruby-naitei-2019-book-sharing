@@ -34,9 +34,9 @@
         <%= t "book_name" %>
         <span style="color: red;">*</span>
       </label>
-      <%= form.select :book_id, support.load_books,
-        {include_blank: t("choose_book")}, {class: "select-with-search
-        form-control pmd-select2 select-book required"} %>
+      <%= text_field_tag nil, nil, :id => "post_book_name", class: "
+        form-control pmd-select2 required", data: {autocomplete_source: books_path }%>
+      <%= form.hidden_field :book_id, id: "book_id" %>
     <% end %>
   </div>
 
