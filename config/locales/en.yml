@@ -1,6 +1,16 @@
 en:
   hello: "Hello world"
   ruby_book: "RubyNaitei2019BookSharing"
+  sign_up: "Sign up"
+  resend_confir: "Resend confirmation instructions"
+  change_password: "Change your password"
+  new_password: "New password"
+  confirm_password: "Confirm new password"
+  forgot_password: "Forgot your password?"
+  send_reset_password: "Send me reset password instructions"
+  resend_unlock: "Resend unlock instructions"
+  cancel_account: "Cancel my account"
+  update: "Update your Profile"
   users:
     new:
       sign_up: "Sign up"
@@ -94,3 +104,5 @@ en:
   back: "Back"
   edit: "Edit"
   destroy: "Destroy"
+  not_confirmation: "Didn't receive confirmation instructions?"
+  not_unlock: "Didn't receive unlock instructions?"

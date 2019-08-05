@@ -8,7 +8,7 @@ class StaticPagesController < ApplicationController
   private
 
   def get_feeds
-    return unless logged_in?
+    return unless user_signed_in?
     @item = current_user.feed.order_desc
     @feed_items = @item.page(params[:page]).per Settings.page_number
   end

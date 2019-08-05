@@ -12,7 +12,7 @@
     </section>
   </aside>
   <div class="col-md-8">
-    <%= render "follow_form" if logged_in? %>
+    <%= render "follow_form" if user_signed_in? %>
     <% if @user.posts.any? %>
       <h3><%= t "posts" %> (<%= @user.posts.count %>)</h3>
       <ol class="posts">
