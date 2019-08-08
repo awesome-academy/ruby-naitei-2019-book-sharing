@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+    :recoverable, :rememberable, :validatable
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :rates
@@ -9,7 +13,7 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
-  attr_accessor :remember_token, :activation_token, :reset_token
+  attr_accessor :activation_token
   before_save :downcase_email
 
   validates :name, presence: true,
@@ -19,7 +23,6 @@ class User < ApplicationRecord
     length: {maximum: Settings.maximum_length_email},
     format: {with: VALID_EMAIL_REGEX},
     uniqueness: {case_sensitive: false}
-  has_secure_password
   validates :password,
     presence: true,
     length: {minimum: Settings.minimum_length_pass},
@@ -38,21 +41,6 @@ class User < ApplicationRecord
     def new_token
       SecureRandom.urlsafe_base64
     end
-  end
-
-  def remember
-    self.remember_token = User.new_token
-    update_attributes remember_digest: User.digest(remember_token)
-  end
-
-  def authenticated? attribute, token
-    digest = send "#{attribute}_digest"
-    return false unless digest
-    BCrypt::Password.new(digest).is_password? token
-  end
-
-  def forget
-    update_attributes remember_digest: nil
   end
 
   def activate

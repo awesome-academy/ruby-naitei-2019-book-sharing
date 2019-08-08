@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
     user = User.find_by email: params[:session][:email].downcase
 
     if user&.authenticate params[:session][:password]
-      log_in user
       check_remember user
       redirect_back_or root_path
     else
@@ -15,7 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out if logged_in?
+    destroy_user_session if user_signed_in?
     redirect_to root_url
   end
 

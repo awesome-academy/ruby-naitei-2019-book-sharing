@@ -6,7 +6,7 @@
     <div class="row">
       <div class="left col-sm-8">
 
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <% if current_user.following.any? %>
             <h1>Your following's reviews</h1><hr>
             <% @feed_items.each do |post| %>

@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
   root "static_pages#home"
-  get "/signup", to: "users#new"
-  post "/signup", to: "users#create"
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
   concern :paginatable do
         get "(page/:page)", action: :index, on: :collection, as: ""
   end

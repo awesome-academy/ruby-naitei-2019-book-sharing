@@ -73,6 +73,7 @@ $(document).on('click', '.unlikeBtn', function () {
 });
 
 $(document).on('click', '.like-login', function() {
+  var url = $(this).data('url');
   alert("Please login!");
-  window.location.href = '/login';
+  window.location.href = url;
 });

@@ -1,6 +1,7 @@
 vi:
   hello: "Hello world"
   ruby_book: "RubyNaitei2019BookSharing"
+  sign_up: "Đăng ký"
   users:
     new:
       sign_up: "Đăng ký"
