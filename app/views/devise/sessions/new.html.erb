@@ -30,5 +30,6 @@
 
     <%= render "devise/shared/links" %>
     <p>New user? <%= link_to t("sign_up_now"), new_user_registration_path %></p>
+    <%= link_to t "sign_fb", "/auth/facebook", id: "sign_in" %>
   </div>
 </div>

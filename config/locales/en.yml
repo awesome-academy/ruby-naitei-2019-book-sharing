@@ -1,7 +1,10 @@
 en:
   hello: "Hello world"
   ruby_book: "RubyNaitei2019BookSharing"
+  failure_fb: "Sorry, You can't access to our app!"
+  sign_fb: "Sign in with facebook"
   sign_up: "Sign up"
+  fb_error: "There was an error while trying to authenticate you"
   resend_confir: "Resend confirmation instructions"
   change_password: "Change your password"
   new_password: "New password"

@@ -77,6 +77,20 @@ class User < ApplicationRecord
     total
   end
 
+  def self.from_omniauth auth
+    user = User.find_or_create_by(provider: auth.provider, uid: auth.uid)
+
+    user.email = if auth.info.email
+                   auth.info.email
+                 else
+                   auth.uid + "@gmail.com"
+                 end
+    user.name = auth.info.name
+    user.encrypted_password = Devise.friendly_token[0, 20]
+    user.save
+    user
+  end
+
   private
 
   def downcase_email
