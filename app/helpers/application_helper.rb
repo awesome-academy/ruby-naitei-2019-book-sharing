@@ -18,4 +18,16 @@ module ApplicationHelper
   def rate book
     book.rates.find_by user_id: current_user.id
   end
+
+  def emojify content
+    if content.present?
+      content.to_str.gsub(/:([\w+-]+):/) do |match|
+        if emoji = Emoji.find_by_alias(Regexp.last_match(1))
+          %(<img alt="#{Regexp.last_match(1)}" src="#{image_path("emoji/#{emoji.image_filename}")}" style="vertical-align:middle" width="20" height="20" />)
+        else
+          match
+        end
+      end.html_safe
+    end
+  end
 end

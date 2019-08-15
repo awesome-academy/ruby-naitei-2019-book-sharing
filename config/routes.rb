@@ -19,4 +19,14 @@ Rails.application.routes.draw do
     resources :likes, only: %i(create destroy)
   end
   resources :relationships, only: %i(create destroy)
+  resources :messages, only: :index
+  resources :conversations, only: [:create] do
+    member do
+      post :close
+    end
+
+    resources :messages, only: :create
+  end
+
+  mount ActionCable.server, at: '/cable'
 end

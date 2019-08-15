@@ -1,7 +1,3 @@
-$(document).ready(function(){
-  $('.best_in_place').best_in_place();
-});
-
 $(document).on('keydown', "#comment_content", function(e){
   var keycode = (event.keyCode ? event.keyCode : event.which);
   if (e.keyCode == 13 && !e.shiftKey){

@@ -1,0 +1,7 @@
+<div id="messages" class="messages">
+  <div id="messages-table" class="messages-table">
+    <% messages.each do |message| %>
+      <%= render message, user: user %>
+    <% end %>
+  </div>
+</div>

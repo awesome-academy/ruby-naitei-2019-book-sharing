@@ -10,7 +10,7 @@ $(function() {
 });
 
 $(document).ready(function() {
-  $('.select-book').select2({
+  $('.select-book').select({
     theme: 'bootstrap'
   });
 });
