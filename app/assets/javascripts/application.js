@@ -18,4 +18,5 @@
 //= require post
 //= require comment
 //= require rate
+//= require font_awesome5
 //= require_tree .

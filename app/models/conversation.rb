@@ -5,11 +5,13 @@ class Conversation < ApplicationRecord
 
   validates :sender_id, uniqueness: {scope: :recipient_id}
 
-  scope :between, ->(sender_id, recipient_id) do
+  f = lambda do |sender_id, recipient_id|
     where(sender_id: sender_id, recipient_id: recipient_id).or(
       where(sender_id: recipient_id, recipient_id: sender_id)
     )
   end
+
+  scope :between, f
 
   def self.get sender_id, recipient_id
     conversation = between(sender_id, recipient_id).first
