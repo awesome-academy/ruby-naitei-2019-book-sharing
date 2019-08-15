@@ -1,0 +1,103 @@
+@import "bootstrap-sprockets"
+@import "bootstrap"
+
+.message-wr
+  height: 75vh
+  margin: auto
+  width: 80vw
+
+.messages
+  background-color: #fff
+  box-sizing: border-box
+  height: 87%
+  padding: 20px
+
+.messages-table
+  display: table
+  width: 100%
+
+.message
+  line-height: 1.6
+  &:last-child
+    margin-bottom: 10px
+  display: table-row
+  &:nth-child(2n) div ~ div
+  > div
+    display: table-cell
+    padding: 13px 10px 10px
+
+.message-user
+  color: #666
+  font-size: 13px
+  margin-right: 10px
+  vertical-align: top
+
+code
+  font-family: monospace
+  white-space: pre-wrap
+  padding: 9px 15px
+  display: inline-block
+  background-color: #eee
+
+.message-content
+  width: 100%
+
+.message-input
+  background-color: rgba(0,0,0,0.03)
+  box-sizing: border-box
+  height: 13%
+  padding: 0 5px 5px
+  form
+    height: 100%
+  textarea
+    height: 100%
+    width: 100%
+  input
+    display: none
+
+blockquote
+  display: block
+  margin-top: 1em
+  margin-bottom: 1em
+  margin-left: 40px
+  margin-right: 40px
+  background: #eee
+  padding: 0.5em
+  font-style: italic
+
+// conversation
+
+ul
+  padding-left: 0px
+  list-style: none
+
+.messages-list
+  max-height: 500px
+  overflow-y: auto
+  overflow-x: hidden
+
+.message-sent
+  position: relative
+  background-color: #D9EDF7
+  border-color: #BCE8F1
+  margin: 5px 20px
+  padding: 10px
+  float: right
+
+.message-received
+  background-color: #F1F0F0
+  border-color: #EEEEEE
+  margin: 5px 20px
+  padding: 10px
+  float: left
+
+.time-sent
+  position: relative
+  margin: 10px 0 0 0
+  float: right
+  font-size: 8px
+
+.time-received
+  float: left
+  margin: 10px 0 0 0
+  font-size: 8px

@@ -1,0 +1,8 @@
+<div class="message">
+  <div class="<%= user.id == message.user_id ? "message-sent" : "message-received" %>">
+    <%= sanitize message.content %>
+  </div>
+  <div class="<%= user.id == message.user_id ? "time-sent" : "time-received" %>">
+    <%= message.message_time %>
+  </div>
+</div>
