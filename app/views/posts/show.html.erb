@@ -65,7 +65,7 @@
                       <span class="btn icon-btn btn-info unlikeBtn
                         pmd-ripple-effect pmd-btn-raised"
                         data="<%= @post.id %>" like-id="<%= like(@post).id %>">
-                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <i class="fas fa-thumbs-up" aria-hidden="true"></i>
                         <%= t("liked") %>
                       </span>&nbsp;
                       <% if @post.likes.size > 0 %>
@@ -79,7 +79,7 @@
                       <span class="btn icon-btn btn-default likeBtn
                         pmd-ripple-effect pmd-btn-raised"
                         data="<%= @post.id %>">
-                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                        <i class="far fa-thumbs-up" aria-hidden="true" style="color: blue;"></i>
                         <span><%= t("like_it") %></span>
                       </span>&nbsp;
                       <% if @post.likes.size > 0 %>

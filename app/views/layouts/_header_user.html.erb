@@ -1,13 +1,13 @@
 <li>
   <%= link_to new_post_path, class: "dropbtn" do %>
-    <i class="fa fa-pencil-square-o fa-md" aria-hidden="true"></i>
+    <i <i class="far fa-edit" aria-hidden="true"></i>
     <%= t "Write Post" %>
   <% end %>
 </li>
 <li>
   <%= link_to messages_path, class: "dropbtn" do %>
-    <i class="fa fa-facebook-messenger fa-md" aria-hidden="true"></i>
-    <%= "Messager" %>
+    <i class="fab fa-facebook-messenger" style="font-size:16px"></i>
+    <%= "Messenger" %>
   <% end %>
 </li>
 <li class="dropdown pmd-dropdown">
@@ -38,7 +38,7 @@
     </li>
     <li>
       <%= link_to destroy_user_session_path, method: :delete do %>
-        <i class="fa fa-sign-out" aria-hidden="true"></i> <%= t "user.sign_out" %>
+        <i class="fas fa-sign-out-alt" aria-hidden="true"></i> <%= t "user.sign_out" %>
       <% end %>
     </li>
   </ul>

@@ -6,28 +6,16 @@ class MessagesController < ApplicationController
   def index
     session[:conversations] ||= []
 
-    # @users = User.all.where.not(id: current_user)
     @users = current_user.following
     @conversations = Conversation.includes(:recipient, :messages)
                                  .find(session[:conversations])
   end
 
   def create
-    @conversation = Conversation.includes(:recipient).find(params[:conversation_id])
+    @conversation =
+      Conversation.includes(:recipient).find(params[:conversation_id])
     @message = @conversation.messages.build(message_params)
-
-    if @message.save
-      recipient_id = @conversation.opposed_user(current_user).id
-      ActionCable.server.broadcast "room_channel_user_#{recipient_id}",
-        content:  @message.content,
-        username: @message.user.name,
-        conversation: @conversation.id,
-        created_at: @message.message_time
-
-      respond_to do |format|
-        format.js
-      end
-    end
+    broadcast_message @message, @conversation
   end
 
   private
@@ -43,5 +31,19 @@ class MessagesController < ApplicationController
 
   def render_message _message
     render(partial: "message", locals: {message: @message})
+  end
+
+  def broadcast_message message, conversation
+    return unless message.save
+    recipient_id = conversation.opposed_user(current_user).id
+    ActionCable.server.broadcast "room_channel_user_#{recipient_id}",
+      content:  markdown_to_html(emojify(message.content)),
+      username: message.user.name,
+      conversation: conversation.id,
+      created_at: message.message_time
+
+    respond_to do |format|
+      format.js
+    end
   end
 end
