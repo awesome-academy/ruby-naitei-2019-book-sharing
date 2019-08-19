@@ -15,7 +15,7 @@ class Book < ApplicationRecord
     if pattern.blank?
       all
     else
-      where("name LIKE ?", "#{pattern}%")
+      joins(:authors, :genres).where("authors.name LIKE ? OR books.name LIKE ? OR genres.name LIKE ?", "%#{pattern}%", "%#{pattern}%", "%#{pattern}%")
     end
   end
 
