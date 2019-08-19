@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
+  after_action :user_activity
   include SessionsHelper
   include MessagesHelper
   include ApplicationHelper
@@ -19,5 +20,9 @@ class ApplicationController < ActionController::Base
     store_location
     flash[:danger] = t "login"
     redirect_to new_user_session_url
+  end
+
+  def user_activity
+    current_user.try :touch
   end
 end

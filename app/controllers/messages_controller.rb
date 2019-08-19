@@ -42,8 +42,6 @@ class MessagesController < ApplicationController
       conversation: conversation.id,
       created_at: message.message_time
 
-    respond_to do |format|
-      format.js
-    end
+    respond_to :js
   end
 end

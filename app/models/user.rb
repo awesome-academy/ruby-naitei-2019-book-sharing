@@ -91,6 +91,10 @@ class User < ApplicationRecord
     user
   end
 
+  def online?
+    updated_at > Settings.online_time.minutes.ago
+  end
+
   private
 
   def downcase_email
