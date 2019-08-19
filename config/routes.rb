@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   concern :paginatable do
         get "(page/:page)", action: :index, on: :collection, as: ""
   end
+  get "/auth/:provider/callback", :to => "sessions#create"
+  get "/auth/failure", :to => "sessions#failure"
   resources :users do
     member do
       get "followers/new", to: "followers#new"
