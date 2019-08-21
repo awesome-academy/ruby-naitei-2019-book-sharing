@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
   mount_uploader :picture, ImagesUploader
   scope :order_asc, ->{order name: :asc}
+  scope :search_name, ->(name){where("name like ?", "%#{name}%")}
 
   has_many :author_books
   has_many :authors, through: :author_books, dependent: :destroy
