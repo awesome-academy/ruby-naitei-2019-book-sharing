@@ -12,3 +12,10 @@ App.room = App.cable.subscriptions.create "RoomChannel",
         '<div class="message-received">' + data.content + '</div>' +
         '<div class="time-received">' + data.created_at + '</div>' + '</div>'
       $('.messages-list').scrollTop($('.messages-list')[0].scrollHeight)
+
+      user = $('#message-panel').find("[user-id='" + data.user_id + "']")
+      value = parseInt($('.badge').attr('value')) + 1
+      user.find('span').remove()
+      user.append '<span class="badge badge-secondary" style="background-color: #FF0000;">' + value + '</span>'
+      user.find('span').attr("value", value)
+
