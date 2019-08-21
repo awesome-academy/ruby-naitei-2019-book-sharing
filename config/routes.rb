@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "static_pages#home"
+  get "/search", to: "books#search"
   concern :paginatable do
         get "(page/:page)", action: :index, on: :collection, as: ""
   end
