@@ -86,7 +86,7 @@ class User < ApplicationRecord
                    auth.uid + "@gmail.com"
                  end
     user.name = auth.info.name
-    user.encrypted_password = Devise.friendly_token[0, 20]
+    user.password = Devise.friendly_token[0, 20]
     user.save
     user
   end

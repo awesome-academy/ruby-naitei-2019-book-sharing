@@ -21,7 +21,7 @@
       </li>
     </ul>
 
-    <%= form_tag books_path, method: :get, class:"navbar-form navbar-left" do %>
+    <%= form_tag search_path, method: :get, class:"navbar-form navbar-left" do %>
       <div class="form-group" id="searchDiv">
         <%= text_field_tag :q, params[:q], class:"form-control",
           placeholder:"Title / Author" %>

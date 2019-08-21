@@ -10,3 +10,4 @@ content_value: 1140
 maximum_length_pass: 128
 reset_password_within: 6
 online_time: 1
+content_size_view: 350

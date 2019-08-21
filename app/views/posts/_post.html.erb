@@ -3,10 +3,33 @@
      post.user %>
   <span class="user"><%= link_to post.user.name, post.user %></span>
   <%= t "reviewed" %>
-  <%= link_to post.book.name, post.book %>
+  <%= link_to post.book.name, post.book %>&nbsp;&nbsp;|
+  <div class="wrapIcon comment">
+    <span class="glyphicon glyphicon-time amount"></span>
+    <span title="<%= post.created_at.to_s %>" class="amount">
+      <%=  time_ago_in_words(post.created_at) %>
+      <%= t "ago" %>
+    </span>
+  </div>&nbsp;&nbsp;|
+  <div class="wrapIcon comment">
+    <span class="fa fa-comments"></span>&nbsp;
+    <p class="amount comment ng-binding">
+      <%= post.comments.size %>
+    </p>
+  </div>&nbsp;&nbsp;|
+  <div class="wrapIcon like">
+    <span class="far fa-thumbs-up"></span>&nbsp;
+    <p class="amount like ng-binding">
+      <%= post.likes.size %>
+    </p>
+  </div>
+  <div>
+    <%= link_to post_path(post) do %>
+      <b><%= post.title %></b>
+    <% end %>
+  </div>
   <span class="minicontent">
-    <%= link_to post.title, post %>
-    <%= post.content %>
+    <%= truncate_html(post.content, length: Settings.content_size_view, omission: " ...") %>
     <%= image_tag post.book.picture.url, id: "img" if post.book.picture? %>
   </span>
   <span class="timestamp">
