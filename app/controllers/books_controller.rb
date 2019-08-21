@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
-    @books = Book.search(params[:q]) if params[:q]
+    @books = Book.order_asc.search_name(params[:term])
+    render json: @books.map{|t| {label: t.name, value: t.id}}
   end
 
   def search
