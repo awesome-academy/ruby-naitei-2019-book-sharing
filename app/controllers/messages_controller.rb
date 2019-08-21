@@ -40,6 +40,7 @@ class MessagesController < ApplicationController
       content:  markdown_to_html(emojify(message.content)),
       username: message.user.name,
       conversation: conversation.id,
+      user_id: current_user.id,
       created_at: message.message_time
 
     respond_to :js

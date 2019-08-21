@@ -20,4 +20,11 @@
       event.preventDefault();
     }
   });
+
+  $(document).on('click', '.messages-list', function(e) {
+    e.preventDefault();
+    var user_id = $('.messages-list').attr('user-id');
+    $('#message-panel').find("[user-id='" + user_id + "']").empty();
+    $('#message-panel').find("[user-id='" + user_id + "']").append('<span class="badge badge-secondary" style="background-color: #FF0000;" value="0"></span>');
+  });
 })();

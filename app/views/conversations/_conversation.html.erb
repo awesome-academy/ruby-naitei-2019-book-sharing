@@ -6,7 +6,7 @@
     </div>
 
     <div class="panel-body" style="display: none;">
-      <div class="messages-list">
+      <div class="messages-list" user-id='<%= conversation.opposed_user(user).id %>'>
         <ul>
           <%= render 'conversations/conversation_content', messages: conversation.messages, user: user %>
         </ul>
